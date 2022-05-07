@@ -25,15 +25,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-
 .idea/
-.DS_Store.idea/
 .DS_Store
 
-bin/
-
 tmp/
-
 log/
-
 vendor/
