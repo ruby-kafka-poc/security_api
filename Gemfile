@@ -6,15 +6,17 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 
 gem 'aasm'
+gem 'bcrypt'
 gem 'dotenv-rails'
+gem 'jwt'
 gem 'kafka_rails_integration',
     git: 'https://github.com/ruby-kafka-poc/rails_kafka_integration.git'
-    # git: 'git@github.com:ruby-kafka-poc/rails_kafka_integration.git',
-    # ref: 'cc89338' # branch: 'added_lib' # tag: '2.0.1'
-
+# git: 'git@github.com:ruby-kafka-poc/rails_kafka_integration.git',
+# ref: 'cc89338' # branch: 'added_lib' # tag: '2.0.1'
 gem 'karafka', '>= 2.0.0.alpha2'
 gem 'pg'
 gem 'puma', '~> 5.0'
+gem 'rack-cors'
 gem 'rails', '~> 7.0.2', '>= 7.0.2.3'
 
 group :development, :test do
