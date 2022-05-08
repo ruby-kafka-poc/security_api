@@ -61,8 +61,8 @@ jobs:
           ls
           echo '>> config: '
           ls config
-          git secret cat -p $PASSPHRASE
           git secret reveal -p $PASSPHRASE -f -F -v
+          git secret cat -p $PASSPHRASE
 
       - name: Build App
         env:
