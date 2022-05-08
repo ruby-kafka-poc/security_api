@@ -41,13 +41,6 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
 
-      - name: Install PostgreSQL client
-        run: |
-          sudo apt-get -yqq install libpq-dev
-
-      - name: ls
-        run: ls
-
       - name: Build App
         env:
           PGHOST: localhost
