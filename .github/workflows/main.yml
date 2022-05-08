@@ -35,11 +35,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install secrets
+      - name: Install dependencies
         run: |
           sudo sh -c "echo 'deb https://gitsecret.jfrog.io/artifactory/git-secret-deb git-secret main' >> /etc/apt/sources.list"
           wget -qO - 'https://gitsecret.jfrog.io/artifactory/api/gpg/key/public' | sudo apt-key add -
-          sudo apt-get update && sudo apt-get install -y git-secret gpg
+          sudo apt-get update && sudo apt-get install -yqq git-secret gpg libpq-dev
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
 
       - name: Import GPG key
         id: import_gpg
@@ -48,21 +54,11 @@ jobs:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
 
-      - name: Reveal secrets
-        run: git secret reveal
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby }}
-          bundler-cache: true
-
-      - name: Install PostgreSQL client
-        run: |
-          sudo apt-get -yqq install libpq-dev
-
       - name: ls
         run: ls
+
+      - name: Reveal secrets
+        run: git secret reveal
 
       - name: Build App
         env:
