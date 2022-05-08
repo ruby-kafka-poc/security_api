@@ -58,7 +58,9 @@ jobs:
           PASSPHRASE: ${{ secrets.PASSPHRASE }}
         run: |
           git secret reveal -p $(echo $PASSPHRASE | sed 's/./& /g')
+          echo '>> root: '
           ls
+          echo '>> config: '
           ls config
 
       - name: Build App
