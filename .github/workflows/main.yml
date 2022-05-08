@@ -35,22 +35,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Import GPG key
-        id: import_gpg
-        uses: crazy-max/ghaction-import-gpg@v4
-        with:
-          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
-
-      - name: List keys
-        run: gpg -K
-
-      - name: Reveal secrets
-        env:
-          PASSPHRASE: ${{ secrets.PASSPHRASE }}
-        run: |
-          git secret reveal -p $PASSPHRASE
-
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
