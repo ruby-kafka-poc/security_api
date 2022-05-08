@@ -18,6 +18,12 @@ RSpec.describe '/users', type: :request do
   describe 'POST /create' do
     context 'with valid parameters' do
       it 'creates a new User' do
+        pp '>>>>>>>>>>>>>>>>>>>>>>>>>>>'
+        pp SECRETS['jwt_key']
+        pp '>>>>>>>>>>>>>>>>>>>>>>>>>>>'
+        pp SECRETS
+        pp '>>>>>>>>>>>>>>>>>>>>>>>>>>>'
+
         expect do
           post users_url,
                params: { user: valid_attributes }, as: :json
