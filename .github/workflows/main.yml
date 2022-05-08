@@ -56,13 +56,7 @@ jobs:
         run: |
           echo "$GPG_PRIVATE_KEY" > ./private_key.gpg
           gpg --batch --yes --pinentry-mode loopback --import private_key.gpg
-
-          echo '>> root: '
-          ls
-          echo '>> config: '
-          ls config
-          git secret reveal -p $PASSPHRASE -f -F -v
-          git secret cat -p $PASSPHRASE
+          git secret reveal -p $PASSPHRASE
 
       - name: Build App
         env:
