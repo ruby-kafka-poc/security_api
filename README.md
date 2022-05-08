@@ -34,6 +34,8 @@ Requiremnts
 
 Encrypt
 
+https://gist.github.com/tyrcho/651fdf93de5df49e8c2e10685562206f
+
 ```sh
 # https://www.devdungeon.com/content/gpg-tutorial
 brew install gnupg
