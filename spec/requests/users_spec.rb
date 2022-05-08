@@ -11,7 +11,7 @@ RSpec.describe '/users', type: :request do
     }
   end
   let(:invalid_attributes) { { email: 'wrong.com' } }
-  let(:token) { JWT.encode({ user_id: user.id }, 's3cr3t') }
+  let(:token) { JWT.encode({ user_id: user.id }, SECRETS['jwt_key']) }
   let(:valid_headers) { { Authorization: "Bearer #{token}" } }
   let(:user) { FactoryBot.create(:user) }
 
