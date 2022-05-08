@@ -43,8 +43,11 @@ jobs:
           sudo apt-get install -yqq git-secret gpg libpq-dev
           echo 'git secret --version'
           git secret --version
+          #  0.4.0 (same pc and server)         
           echo 'gpg --help'
-          gpg --help
+          gpg --help 
+          # PC: gpg (GnuPG) 2.3.6 libgcrypt 1.10.1
+          # PC: gpg (GnuPG) 2.2.19 libgcrypt 1.8.5
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1

@@ -38,7 +38,8 @@ https://gist.github.com/tyrcho/651fdf93de5df49e8c2e10685562206f
 
 ```sh
 # https://www.devdungeon.com/content/gpg-tutorial
-brew install gnupg
+#brew install gnupg
+brew install gnupg@2.2 # (same than ubuntu) CI: 2.2.19, 2.2.34 mmmm
 # https://git-secret.io
 brew install git-secret
 ```
@@ -48,7 +49,8 @@ Encrypt
 ```sh
 gpg --help
 gpg --gen-key # Gen a new key (add a pass!)
-gpg --export-secret-keys --armor xxxx > ./my-priv-gpg-key.asc
+gpg --export-secret-keys --armor xxxx > ~/.gpg_secrets/my-priv-gpg-key.asc
+cat ~/.gpg_secrets/my-priv-gpg-key.asc | pbcopy
  
 git secret init
 git secret tell myemail@gmail.com
