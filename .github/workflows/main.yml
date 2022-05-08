@@ -37,9 +37,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo sh -c "echo 'deb https://gitsecret.jfrog.io/artifactory/git-secret-deb git-secret main' >> /etc/apt/sources.list"
-          wget -qO - 'https://gitsecret.jfrog.io/artifactory/api/gpg/key/public' | sudo apt-key add -
-          sudo apt-get update && sudo apt-get install -yqq git-secret gpg libpq-dev
+#          sudo sh -c "echo 'deb https://gitsecret.jfrog.io/artifactory/git-secret-deb git-secret main' >> /etc/apt/sources.list"
+#          wget -qO - 'https://gitsecret.jfrog.io/artifactory/api/gpg/key/public' | sudo apt-key add -
+#          sudo apt-get update
+          sudo apt-get install -yqq git-secret gpg libpq-dev
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -53,14 +54,15 @@ jobs:
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-
-      - name: ls
-        run: ls
+          git-user-signingkey: true
+          git-commit-gpgsign: true
+#      - name: ls
+#        run: ls
 
       - name: Reveal secrets
         env:
           PASSPHRASE: ${{ secrets.PASSPHRASE }}
-        run: git secret reveal -p ${{ secrets.PASSPHRASE }}".
+        run: git secret reveal -p $(echo $PASSPHRASE | sed 's/./& /g')
 
       - name: Build App
         env:
