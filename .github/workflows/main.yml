@@ -38,6 +38,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get install -yqq git-secret gpg libpq-dev
+          git secret --version
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
