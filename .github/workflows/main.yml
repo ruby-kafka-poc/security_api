@@ -56,7 +56,10 @@ jobs:
       - name: Reveal secrets
         env:
           PASSPHRASE: ${{ secrets.PASSPHRASE }}
-        run: git secret reveal -p $(echo $PASSPHRASE | sed 's/./& /g')
+        run: |
+          git secret reveal -p $(echo $PASSPHRASE | sed 's/./& /g')
+          ls
+          ls config
 
       - name: Build App
         env:
