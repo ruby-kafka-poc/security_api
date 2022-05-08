@@ -49,17 +49,21 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
 
-      - name: Import GPG key
-        id: import_gpg
-        uses: crazy-max/ghaction-import-gpg@v4
-        with:
-          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
+#      - name: Import GPG key
+#        id: import_gpg
+#        uses: crazy-max/ghaction-import-gpg@v4
+#        with:
+#          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+#          passphrase: ${{ secrets.PASSPHRASE }}
 
       - name: Reveal secrets
         env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           PASSPHRASE: ${{ secrets.PASSPHRASE }}
         run: |
+          echo "$GPG_PRIVATE_KEY" > ./private_key.gpg
+          gpg --batch --yes --pinentry-mode loopback --import private_key.gpg
+
           git secret cat -p $(echo $PASSPHRASE | sed 's/./& /g')
           git secret reveal -p $(echo $PASSPHRASE | sed 's/./& /g') -f -F -v
           echo '>> root: '
