@@ -41,7 +41,10 @@ jobs:
           wget -qO - 'https://gitsecret.jfrog.io/artifactory/api/gpg/key/public' | sudo apt-key add -
           sudo apt-get update
           sudo apt-get install -yqq git-secret gpg libpq-dev
+          echo 'git secret --version'
           git secret --version
+          echo 'gpg --help'
+          gpg --help
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
