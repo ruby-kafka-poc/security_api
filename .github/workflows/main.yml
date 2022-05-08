@@ -35,9 +35,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         run: |
-        sudo sh -c "echo 'deb https://gitsecret.jfrog.io/artifactory/git-secret-deb git-secret main' >> /etc/apt/sources.list"
-        wget -qO - 'https://gitsecret.jfrog.io/artifactory/api/gpg/key/public' | sudo apt-key add -
-        sudo apt-get update && sudo apt-get install -y git-secret gpg
+          sudo sh -c "echo 'deb https://gitsecret.jfrog.io/artifactory/git-secret-deb git-secret main' >> /etc/apt/sources.list"
+          wget -qO - 'https://gitsecret.jfrog.io/artifactory/api/gpg/key/public' | sudo apt-key add -
+          sudo apt-get update && sudo apt-get install -y git-secret gpg
 
       - name: Import GPG key
         id: import_gpg
