@@ -56,7 +56,7 @@ jobs:
         env:
           PASSPHRASE: ${{ secrets.PASSPHRASE }}
         run: |
-          git secret reveal -p $(echo $PASSPHRASE | sed 's/./& /g')
+          git secret reveal -p $(echo $PASSPHRASE | sed 's/./& /g') -f -F -v
           echo '>> root: '
           ls
           echo '>> config: '
