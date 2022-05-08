@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 class Security
+  ALGORITHM = 'HS256'
+  EXPIRATION = 4 * 3600 # 4 hours
+
   def self.encode(user_id, email)
-    JWT.encode({
-                 user_id:,
-                 email:
-               }, SECRETS['jwt_key'])
+    exp = Time.now.to_i + EXPIRATION
+    payload = { user_id:, email:, exp: }
+    JWT.encode(payload, SECRETS['jwt_key'], ALGORITHM)
   end
 
   # header: { 'Authorization': 'Bearer <token>' }
@@ -14,8 +16,8 @@ class Security
     return unless match_data
 
     begin
-      JWT.decode(match_data[1], SECRETS['jwt_key'], true, algorithm: 'HS256')
-    rescue JWT::DecodeError
+      JWT.decode(match_data[1], SECRETS['jwt_key'], true, algorithm: ALGORITHM)
+    rescue JWT::DecodeError, JWT::ExpiredSignature
       nil
     end
   end
