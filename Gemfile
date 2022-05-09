@@ -10,7 +10,7 @@ gem 'bcrypt'
 gem 'dotenv-rails'
 gem 'jwt'
 gem 'kafka_rails_integration',
-    git: 'https://github.com/ruby-kafka-poc/rails_kafka_integration.git'
+    git: 'https://github.com/ruby-kafka-poc/rails_kafka_integration.git', branch: 'allow_params'
 # git: 'git@github.com:ruby-kafka-poc/rails_kafka_integration.git',
 # ref: 'cc89338' # branch: 'added_lib' # tag: '2.0.1'
 gem 'karafka', '>= 2.0.0.alpha2'

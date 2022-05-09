@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/ruby-kafka-poc/rails_kafka_integration.git
-  revision: 01c20a6589a94bcfbcd3ac8f1da8eb1a4786a8d5
+  revision: 2e3dd39b1bff1cce7987329dadc0665f2593ca02
+  branch: allow_params
   specs:
     kafka_rails_integration (0.1.0)
 
@@ -189,9 +190,9 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
-    nokogiri (1.13.5-x86_64-darwin)
+    nokogiri (1.13.6-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.13.5-x86_64-linux)
+    nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
     parallel (1.22.1)
     parser (3.1.2.0)
@@ -296,7 +297,7 @@ GEM
     ruby-progressbar (1.11.0)
     sexp_processor (4.16.1)
     spring (4.0.0)
-    strscan (3.0.1)
+    strscan (3.0.2)
     thor (1.2.1)
     timecop (0.9.5)
     timeout (0.2.0)
