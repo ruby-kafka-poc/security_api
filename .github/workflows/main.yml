@@ -45,7 +45,7 @@ jobs:
         env:
           PGHOST: localhost
           RAILS_ENV: test
-        run: bin/rails db:create db:migrate
+        run: bundle exec rails db:create db:migrate
 
       - name: Run the default task
         env:
