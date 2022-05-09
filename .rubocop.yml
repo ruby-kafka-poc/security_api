@@ -26,7 +26,8 @@ Style/Documentation:
 Metrics/BlockLength:
   IgnoredMethods: ['describe', 'context']
   Exclude:
-    - 'Rakefile'
     - '**/*.rake'
-    - 'test/**/*.rb'
+    - 'Rakefile'
+    - 'config/environments/development.rb'
     - 'db/schema.rb'
+    - 'test/**/*.rb'

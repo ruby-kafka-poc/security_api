@@ -20,6 +20,7 @@ gem 'rack-cors'
 gem 'rails', '~> 7.0.2', '>= 7.0.2.3'
 
 group :development, :test do
+  gem 'bullet'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'faker'
@@ -28,7 +29,6 @@ end
 
 group :development do
   gem 'brakeman'
-  gem 'bullet'
   gem 'bundler-audit'
   gem 'formatador'
   gem 'rails_best_practices'
@@ -42,5 +42,6 @@ end
 
 group :test do
   gem 'rspec'
+  gem 'simplecov'
   gem 'timecop'
 end

@@ -50,4 +50,7 @@ jobs:
       - name: Run the default task
         env:
           PGHOST: localhost
+          RAILS_ENV: test
+          CI: true
+          COVERAGE: true
         run: bundle exec rake
