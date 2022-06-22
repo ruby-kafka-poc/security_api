@@ -36,3 +36,4 @@ vendor/
 config/secrets.yml
 coverage/
 .env
+.private_env
