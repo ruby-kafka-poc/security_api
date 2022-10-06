@@ -5,6 +5,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
+<<<<<<< Updated upstream
+=======
+gem 'active_remote'
+gem 'protobuf-nats'
+gem 'protobuf-activerecord'
+
+>>>>>>> Stashed changes
 gem 'aasm'
 gem 'bcrypt'
 gem 'dotenv-rails'
