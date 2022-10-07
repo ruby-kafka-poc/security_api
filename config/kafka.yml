@@ -5,9 +5,7 @@ default: &default
   sasl_username: <%= ENV['SASL_USERNAME'] %>
   sasl_password: <%= ENV['SASL_PASSWORD'] %>
   topics:
-    - user_created
-    - user_deleted
-    - user_updated
+    - users
 
 test:
   <<: *default

@@ -42,3 +42,24 @@ PATCH  /users/:id
 PUT    /users/:id
 DELETE /users/:id
 ```
+
+## Create some data
+
+```shell
+bundle exec rails server -b '0.0.0.0' -p 3004
+
+curl --location -g --request POST 'http://localhost:3004/users' \
+--header 'Content-Type: application/json' \
+--data-raw '{ "user": {"password": "1234", "email": "someguy@gmail.com" }}'
+
+curl --location -g --request POST 'http://localhost:3004/users' \
+--header 'Content-Type: application/json' \
+--data-raw '{ "user": {"password": "1234", "email": "john_do@gmail.com" }}'
+
+curl --location -g --request POST 'http://localhost:3004/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{ "password": "1234", "email": "someguy@gmail.com" }'
+
+# jwt
+
+```
